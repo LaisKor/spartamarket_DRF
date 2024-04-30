@@ -48,23 +48,26 @@ Postman 사용하여 request 보내기
 *body의 content-type은 json
 
 회원가입 (Post): http://127.0.0.1:8000/api/accounts/register/
-    body : {
-    "username": 
-    "password": 
-    "email": 
-    "first_name": 
-    "last_name": 
-    "nickname": 
-    "birthday": 
-    "gender": 
-    "bio": 
+    body : 
+
+```json
+{
+    "username": "your_username",
+    "password": "your_password",
+    "email": "your_email",
+    "first_name": "your_first_name",
+    "last_name": "your_last_name",
+    "nickname": "your_nickname",
+    "birthday": "YYYY-MM-DD",
+    "gender": "your_gender",
+    "bio": "your_bio"
 }
-        양식 채워서 send
+    양식 채워서 send
 
 로그인 (Post): http://127.0.0.1:8000/api/accounts/login/
-        {
-    "username": 
-    "password": 
+{
+    "username": "<your_username>",
+    "password": "<your_password>"
 }
         회원가입 한 username과 password를 입력해서 send= fresh 토큰과 access 토큰 발행
 
