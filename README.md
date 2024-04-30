@@ -65,8 +65,10 @@ Postman 사용하여 request 보내기
 ```
     양식 채워서 send
 
-```json
+
 로그인 (Post): http://127.0.0.1:8000/api/accounts/login/
+
+```json
 {
     "username": "<your_username>",
     "password": "<your_password>"
