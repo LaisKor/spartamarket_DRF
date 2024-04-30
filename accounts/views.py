@@ -6,6 +6,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from .models import CustomUser
 from .serializers import UserSerializer, LoginSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+
 
 class UserCreate(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -31,3 +33,15 @@ class UserProfileView(APIView):
             return Response(serializer.data)
         else:
             return Response({'error': '프로필 조회 권한이 없습니다'}, status=status.HTTP_403_FORBIDDEN)
+        
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        try:
+            refresh_token = request.data['refresh']
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data={"error": str(e)})
