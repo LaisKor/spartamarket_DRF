@@ -48,44 +48,52 @@ Postman 사용하여 request 보내기
 *body의 content-type은 json
 
 회원가입 (Post): http://127.0.0.1:8000/api/accounts/register/
+    
     body : 
-
-```json
-{
-    "username": "your_username",
-    "password": "your_password",
-    "email": "your_email",
-    "first_name": "your_first_name",
-    "last_name": "your_last_name",
-    "nickname": "your_nickname",
-    "birthday": "YYYY-MM-DD",
-    "gender": "your_gender",
-    "bio": "your_bio"
-}
-```
+    {
+        "username": "your_username",
+        "password": "your_password",
+        "email": "your_email",
+        "first_name": "your_first_name",
+        "last_name": "your_last_name",
+        "nickname": "your_nickname",
+        "birthday": "YYYY-MM-DD",
+        "gender": "your_gender",
+        "bio": "your_bio"
+    }
     양식 채워서 send
 
 
 로그인 (Post): http://127.0.0.1:8000/api/accounts/login/
-
-```json
-{
-    "username": "<your_username>",
-    "password": "<your_password>"
-}
-```
-        회원가입 한 username과 password를 입력해서 send= fresh 토큰과 access 토큰 발행
+    
+    {
+        "username": "<your_username>",
+        "password": "<your_password>"
+    }
+    회원가입 한 username과 password를 입력해서 send= fresh 토큰과 access 토큰 발행
 
 지금부터 아래의 기능들은 로그인 후 받은 access 토큰을 Auth 탭에 bearer token으로 집어 넣어서 실행해야 함
 
-프로필 조회 (Get): http://127.0.0.1:8000/api/accounts/<username>
+프로필 조회 (Get): 
+    
+    http://127.0.0.1:8000/api/accounts/<username>
 
-글 등록 (Post): http://127.0.0.1:8000/api/products/
-        Body 탭에서 form-data를 선택해 title(text),content(text), image(file) key를 만들어 value를 입력 후 send
+글 등록 (Post): 
 
-글 조회 (Get) : http://127.0.0.1:8000/api/products/
+    http://127.0.0.1:8000/api/products/
 
-글 수정 (Post): http://127.0.0.1:8000/api/products/<product id>
-        Body 탭에서 form-data를 선택해 title(text),content(text), image(file) key를 만들어 value를 입력 후 send
+    Body 탭에서 form-data를 선택해 title(text),content(text), image(file) key를 만들어 value를 입력 후 send
 
-글 삭제 (Delete) : http://127.0.0.1:8000/api/products/<product id>
+글 조회 (Get)
+
+    http://127.0.0.1:8000/api/products/
+
+글 수정 (Post):
+
+    http://127.0.0.1:8000/api/products/<product id>
+
+    Body 탭에서 form-data를 선택해 title(text),content(text), image(file) key를 만들어 value를 입력 후 send
+
+글 삭제 (Delete) : 
+
+    http://127.0.0.1:8000/api/products/<product id>
