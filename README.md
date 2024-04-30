@@ -45,6 +45,8 @@ DjangoDRF를 이용한 회원가입, 로그인 기능 밑 CRUD 기능 구현
 
     .env.example 파일이름을 .env로 바꾼후 SECRET_KEY 항목에 자신의 SECRET_KEY를 입력
 
+    python manage.py migrate
+
     python manage.py runserver
 
 Postman 사용하여 request 보내기
