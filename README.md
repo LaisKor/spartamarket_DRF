@@ -41,8 +41,11 @@ DjangoDRF를 이용한 회원가입, 로그인 기능 밑 CRUD 기능 구현
 
 
 ## 설치 및 실행 방법
-pip install -r requirements.txt 실행 후
-python manage.py runserver
+    pip install -r requirements.txt 실행
+
+    .env.example 파일이름을 .env로 바꾼후 SECRET_KEY 항목에 자신의 SECRET_KEY를 입력
+
+    python manage.py runserver
 
 Postman 사용하여 request 보내기
 *body의 content-type은 json
