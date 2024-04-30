@@ -30,4 +30,4 @@ class UserProfileView(APIView):
             serializer = UserSerializer(user)
             return Response(serializer.data)
         else:
-            return Response({'error': 'You are not allowed to view this profile.'}, status=status.HTTP_403_FORBIDDEN)
+            return Response({'error': '프로필 조회 권한이 없습니다'}, status=status.HTTP_403_FORBIDDEN)
