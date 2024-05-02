@@ -3,7 +3,7 @@ from .models import Product
 from .serializers import ProductSerializer
 
 class StandardResultsSetPagination(pagination.PageNumberPagination):
-    page_size = 5 
+    page_size = 4
     page_size_query_param = 'page_size' 
     max_page_size = 100
 
