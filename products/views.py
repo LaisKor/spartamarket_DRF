@@ -1,11 +1,17 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, pagination
 from .models import Product
 from .serializers import ProductSerializer
+
+class StandardResultsSetPagination(pagination.PageNumberPagination):
+    page_size = 5 
+    page_size_query_param = 'page_size' 
+    max_page_size = 100
 
 class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = StandardResultsSetPagination 
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -15,7 +21,7 @@ class ProductRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
 
     def get_permissions(self):
-        if self.request.method in permissions.SAFE_METHODS:  
+        if self.request.method in permissions.SAFE_METHODS:
             return [permissions.AllowAny()]
         return [permissions.IsAuthenticated()]
 
