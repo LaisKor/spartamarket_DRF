@@ -14,6 +14,7 @@ class UserCreate(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
 
+""""
 class LoginView(views.APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -22,7 +23,7 @@ class LoginView(views.APIView):
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+""" 
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
