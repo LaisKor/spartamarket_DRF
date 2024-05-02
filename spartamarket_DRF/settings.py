@@ -9,13 +9,14 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import environ, os
+#import environ, os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Initialise environment variables
+"""
 env = environ.Env(
     # Set casting, default value
     DEBUG=(bool, False)
@@ -23,12 +24,12 @@ env = environ.Env(
 
 # Read .env file
 env.read_env(env.str('ENV_PATH', default=str(BASE_DIR / '.env')))
-
+"""
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-bnw3@1txzdxv-jhzmd9j9m$$q89g0du&o_kh+0+3dx-@=^8nb8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
