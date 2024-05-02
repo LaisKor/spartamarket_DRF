@@ -25,7 +25,7 @@ env = environ.Env(
 env.read_env(env.str('ENV_PATH', default=str(BASE_DIR / '.env')))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-bnw3@1txzdxv-jhzmd9j9m$$q89g0du&o_kh+0+3dx-@=^8nb8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
